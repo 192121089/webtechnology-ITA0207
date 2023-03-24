@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      .calculator {
+        background-color: black;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        margin: 50px auto;
+        padding: 20px;
+        width: 300px;
+        box-shadow: 5px 5px 5px #888;
+      }
+
+      input[type="text"] {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 24px;
+        height: 50px;
+        margin-bottom: 10px;
+        padding: 5px;
+        text-align: right;
+        width: 100%;
+      }
+
+      input[type="button"] {
+        background-color: black;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 24px;
+        height: 50px;
+        margin: 5px;
+        width: 50px;
+        cursor: pointer;
+      }
+
+      input[type="button"]:hover {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <form>
+        <input type="text" id="result" placeholder="0" disabled>
+        <br>
+        <input type="button" value="1" onclick="appendToResult('1')">
+        <input type="button" value="2" onclick="appendToResult('2')">
+        <input type="button" value="3" onclick="appendToResult('3')">
+        <input type="button" value="+" onclick="appendToResult('+')">
+        <br>
+        <input type="button" value="4" onclick="appendToResult('4')">
+        <input type="button" value="5" onclick="appendToResult('5')">
+        <input type="button" value="6" onclick="appendToResult('6')">
+        <input type="button" value="-" onclick="appendToResult('-')">
+        <br>
+        <input type="button" value="7" onclick="appendToResult('7')">
+        <input type="button" value="8" onclick="appendToResult('8')">
+        <input type="button" value="9" onclick="appendToResult('9')">
+        <input type="button" value="" onclick="appendToResult('')">
+        <br>
+        <input type="button" value="C" onclick="clearResult()">
+        <input type="button" value="0" onclick="appendToResult('0')">
+        <input type="button" value="=" onclick="calculateResult()">
+        <input type="button" value="/" onclick="appendToResult('/')">
+      </form>
+    </div>
+    <script>
+      let result = document.getElementById('result');
+
+      function appendToResult(value) {
+        result.value += value;
+      }
+
+      function clearResult() {
+        result.value = '';
+      }
+
+      function calculateResult() {
+        result.value = eval(result.value);
+      }
+    </script>
+  </body>
+</html>
